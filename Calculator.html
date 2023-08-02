@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+    <header class="header1">
+        <h1>Calculator</h1>
+    </header>
+    <section class="section1">
+        <input type="text" id="input1">
+        <button type="button"  id="Clearbtn"> <i class="material-icons"  style="font-size:36px;color:green">backspace</i></button>
+        <div class="div1">
+        <button type="button" id="Cbtn">C</button>
+        <button type="button" id="Bbtn">()</button>
+        <button type="button" id="Pbtn">%</button>
+        <button type="button" id="dbtn">/</button>
+        <br>
+        <button type="button" id="Sbtn">7</button>
+        <button type="button" id="Ebtn">8</button>
+        <button type="button" id="Nbtn">9</button>
+        <button type="button" id="Mbtn">X</button>
+        <br>
+        <button type="button" id="Fbtn">4</button>
+        <button type="button" id="Fivebtn">5</button>
+        <button type="button" id="Sixbtn">6</button>
+        <button type="button" id="Subbtn">-</button>
+        <br>
+        <button type="button" id="Obtn">1</button>
+        <button type="button" id="Tbtn">2</button>
+        <button type="button" id="Threebtn">3</button>
+        <button type="button" id="Plusbtn">+</button>
+        <br>
+        <button type="button" id="Bodbtn">+/-</button>
+        <button type="button" id="Zbtn">0</button>
+        <button type="button" id="Dbtn">.</button>
+        <button type="button" id="Eqbtn">=</button>
+    </div>
+    </section>
+    <footer class="footer1">
+        <h2>Designed by Touseef Ahmed</h2>
+    </footer>
+    <script>
+        let Clearbtn=document.getElementById('Clearbtn');
+        let input=document.getElementById('input1');
+        let Cbtn = document.getElementById('Cbtn');
+        let Perbtn=document.getElementById('Pbtn');
+        let Bodbtn=document.getElementById('bodbtn');
+        let Divbtn=document.getElementById('dbtn');
+        let Sevenbtn=document.getElementById('Sbtn');
+        let Ebtn=document.getElementById('Ebtn');
+        let Nbtn=document.getElementById('Nbtn');
+        let Mbtn=document.getElementById('Mbtn');
+        let Fbtn=document.getElementById('Fbtn');
+        let Fivebtn=document.getElementById('Fivebtn');
+        let Sixbtn=document.getElementById('Sixbtn');
+        let Subbtn=document.getElementById('Subbtn');
+        let Onebtn=document.getElementById('Obtn');
+        let Twobtn=document.getElementById('Tbtn');
+        let Threebtn=document.getElementById('Threebtn');
+        let Plusbtn=document.getElementById('Plusbtn');
+        let Zerobtn=document.getElementById('Zbtn');
+        let Dbtn=document.getElementById('Dbtn');
+        let Eqbtn=document.getElementById('Eqbtn');
+
+        //Restriction for alphabetical values
+        input.addEventListener('input', function(){
+            let currentValue=input.value;
+            let cleanedValue=currentValue.replace(/[a-zA-Z]/g,'');
+            if(cleanedValue!==currentValue){
+                input.value=cleanedValue;
+            }
+        })
+        //Backspace
+        Clearbtn.addEventListener('click',function(){
+            if(Clearbtn.querySelector('i').textContent==='backspace'){
+                input.value=input.value.slice(0,-1);
+            }
+        })
+        //Clear inputs
+        Cbtn.addEventListener('click', function(){
+            input.value="";
+        })
+        //Click Button
+        Zerobtn.addEventListener('click', function(){
+            input.value=0;
+        })
+        Threebtn.addEventListener('click', function(){
+            input.value+=3;
+        })
+        Plusbtn.addEventListener('click', function(){
+            input.value+="+";
+        })
+        Onebtn.addEventListener('click', function(){
+            input.value+=1;
+        })
+        Twobtn.addEventListener('click', function(){
+            input.value+=2;
+        })
+        Fbtn.addEventListener('click', function(){
+            input.value+=4;
+        })
+        Fivebtn.addEventListener('click', function(){
+            input.value+=5;
+        })
+        Sixbtn.addEventListener('click', function(){
+            input.value+=6;
+        })
+        Sevenbtn.addEventListener('click', function(){
+            input.value+=7;
+        })
+        Ebtn.addEventListener('click', function(){
+            input.value+=8;
+        })
+        Nbtn.addEventListener('click', function(){
+            input.value+=9;
+        })
+        Mbtn.addEventListener('click', function(){
+            input.value+="*";
+        })
+        Divbtn.addEventListener('click', function(){
+            input.value+="/";
+        })
+        Subbtn.addEventListener('click', function(){
+            input.value+="-";
+        })
+        Dbtn.addEventListener('click', function(){
+            input.value+=".";
+        })
+        Perbtn.addEventListener('click', function(){
+            input.value+="%";
+        })
+       
+        
+        Eqbtn.addEventListener('click', function(){
+           Calculate(); 
+        })
+        function Calculate(){
+            try{
+                let result=eval(input.value);
+                input.value=result;
+            }
+            catch(erro){
+                input.value='Error';
+            }
+        }
+
+    </script>
+</body>
+</html>
